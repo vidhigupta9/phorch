@@ -15,6 +15,7 @@ from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
 import openpyxl
 import time
 import tqdm
+import env
 
 #To Hide Warnings
 st.set_option('deprecation.showfileUploaderEncoding', False)
@@ -47,10 +48,10 @@ def main():
     st.subheader("Dont'be the victim!")
 
     ################# Twitter API Connection #######################
-    consumer_key = "yJJ9L9NpkbzbXoCtq3GvWnp9m"
-    consumer_secret = "fvwJZKBYyEgFSEuWlZ60QKPouiYxDiLPzDwFBIeIWX9xp6Xjg8"
-    access_token = "3104698248-SYpGE0rsdf7xIbF6ZES8IxQ561d9zPnRWqfpEjS"
-    access_token_secret = "7jl7Qyuyy0oZxSHR99H26PdJg96owgCZGnlUWUdVsbWif"
+    consumer_key = env.consumer_key
+    consumer_secret = env.consumer_secret
+    access_token = env.access_token
+    access_token_secret = env.access_token_secret
 
 
 
