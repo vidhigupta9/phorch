@@ -15,7 +15,12 @@ from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
 import openpyxl
 import time
 import tqdm
-import env
+import configparser
+
+
+config = configparser.ConfigParser()
+config.read('config.ini')
+
 
 #To Hide Warnings
 st.set_option('deprecation.showfileUploaderEncoding', False)
@@ -48,10 +53,10 @@ def main():
     st.subheader("Dont'be the victim!")
 
     ################# Twitter API Connection #######################
-    consumer_key = env.consumer_key
-    consumer_secret = env.consumer_secret
-    access_token = env.access_token
-    access_token_secret = env.access_token_secret
+    consumer_key = config.get('twitter api','consumer_key')
+    consumer_secret = config.get('twitter api','consumer_secret')
+    access_token = config.get('twitter api','access_token')
+    access_token_secret = config.get('twitter api','access_token_secret')
 
 
 
