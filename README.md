@@ -32,3 +32,6 @@ Run:
 ```bash
 $ streamlit run app.py
 ```
+
+## Reference
+[Feature Importance Guided Attack: A Model Agnostic Adversarial Attack](https://arxiv.org/abs/2106.14815#:~:text=Feature%20Importance%20Guided%20Attack%3A%20A%20Model%20Agnostic%20Adversarial%20Attack,-Gilad%20Gressel%2C%20Niranjan&text=Machine%20learning%20models%20are%20susceptible,which%20dramatically%20reduce%20their%20performance.&text=We%20keep%20the%20attack%20realistic,adversary%20would%20have%20control%20over.)
