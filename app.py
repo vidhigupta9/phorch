@@ -141,7 +141,7 @@ def main():
     
     #Sidebar
     st.sidebar.header("About App")
-    st.sidebar.info("URL classification process which recognizes whether the target website is a malicious(1) or benign(0). Enables individual URL checking and and checks random twitter posts to indentify any malicious redirections ")
+    st.sidebar.info("URL classification process which recognizes whether the target website is a malicious(1) or benign(0). Enables individual URL checking and also checks random twitter posts to indentify any malicious redirections ")
     #st.sidebar.text("Built with Streamlit")
     
     st.sidebar.info("[Source Code](https://github.com/vidhigupta9/pytorch)")
