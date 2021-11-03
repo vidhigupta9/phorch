@@ -1,4 +1,4 @@
-# pytorch
+# URL Extraction
 
 
 ## Install
@@ -12,7 +12,7 @@ $ pip install -r requirements.txt
 ```
 
 # URL Feature Extractor
-Extracting 111 features from URLs
+Extracting 111 features from URLs from your own database
 
 ### How to use
 Run:
