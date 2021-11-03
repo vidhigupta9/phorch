@@ -13,3 +13,5 @@ with the additional capability to detect new malicious websites or content.
 This repository introduces an automatic tool to extract 111 significant features for a URL. Additionally, this
 also proposes the URL classification process which recognizes whether the target website is a malicious(1) or benign(0).
 
+[URL.md]() provides detailed information and methods on how to extract features from urls for prediction and also how to create your own database.
+<br />
