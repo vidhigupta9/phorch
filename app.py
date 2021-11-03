@@ -110,7 +110,7 @@ def main():
             if len(Topic) > 0 :
                 # Call the function to extract the data. pass the topic and filename you want the data to be stored in.
                 with st.spinner("Please wait, Tweets are being extracted"):
-                    df = get_tweets(Topic , Count=50)
+                    df = get_tweets(Topic , Count=10)
                 st.success('Tweets have been Extracted !!!!')
                     # Call function to get Clean tweets
                 df['url'] = df['Tweet'].apply(lambda x : clean_tweet(x))
@@ -121,7 +121,7 @@ def main():
                     st.success("Below is the Extracted Data :")
                     st.write(df[['Tweet','url']])
                 if st.button("Predict Results"):
-                    st.write("Wait while process..........")
+                    st.write("Wait while we process..........")
                     df['phishing'] = df['url'].apply(lambda x : prediction(x))
                     st.write(df[['url','phishing']])
                         
