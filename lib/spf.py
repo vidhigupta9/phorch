@@ -78,4 +78,4 @@ def check_spf(spf, domain):
                 return True
         except Exception:
             return False
-    return '?'
+    return -1

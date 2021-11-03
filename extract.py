@@ -28,7 +28,6 @@ def attributes():
                 'tld_params', 'number_params', 'email_exist'
     ]
 
-    #blacklist = ['url_presente_em_blacklists', 'presenca_ip_blacklists', 'dominio_presente_em_blacklists']
 
     host = ['time_domain', 'spf', 'asn', 'activation_time',
                      'expiration_time', 'count_ip', 'count_ns', 'count_mx', 'ttl']
@@ -37,7 +36,6 @@ def attributes():
 
     list_attributes = []
     list_attributes.extend(lexical)
-    #list_attributes.extend(blacklist)
     list_attributes.extend(host)
     list_attributes.extend(others)
 
@@ -158,7 +156,6 @@ def extract_url(url):
         percentage_file = str(
             count(posixpath.basename(dict_url['path']), '%'))
         len_file = str(length(posixpath.basename(dict_url['path'])))
-        #extension = str(extract_extension(posixpath.basename(dict_url['path'])))
     else:
         dot_file = -1
         hyphe_file = -1
@@ -178,7 +175,6 @@ def extract_url(url):
         money_sign_file = -1
         percentage_file = -1
         len_file = -1
-        #extension = '?'
     # PARAMETERS
     if dict_url['query']:
         dot_params = str(count(dict_url['query'], '.'))
@@ -223,18 +219,11 @@ def extract_url(url):
         tld_params = -1
         number_params = -1
 
-    """BLACKLIST"""
-    #blacklist_url = str(check_blacklists(dict_url['protocol'] + '://' + dict_url['url']))
-    #blacklist_ip = str(check_blacklists_ip(dict_url))
-    #blacklist_domain = str(check_blacklists(dict_url['protocol'] + '://' + dict_url['host']))
 
     """HOST"""
     spf = str(valid_spf(dict_url['host']))
-    #rbl = str(check_rbl(dict_url['host']))
     time_domain = str(check_time_response(dict_url['protocol'] + '://' + dict_url['host']))
     asn = str(get_asn_number(dict_url))
-    #country = str(get_country(dict_url))
-    #ptr = str(get_ptr(dict_url))
     activation_time = str(time_activation_domain(dict_url))
     expiration_time = str(expiration_date_register(dict_url))
     count_ip = str(count_ips(dict_url))
@@ -274,7 +263,6 @@ def extract_url(url):
         tld_params, number_params, email_exist
     ]
 
-    #_blacklist = [blacklist_url, blacklist_ip, blacklist_domain]
 
     _host = [time_domain, spf, asn, activation_time,
                 expiration_time, count_ip, count_ns, count_mx, ttl]
@@ -283,7 +271,18 @@ def extract_url(url):
 
     result = []
     result.extend(_lexical)
-    #result.extend(_blacklist)
     result.extend(_host)
     result.extend(_others)
     return result
+
+
+def main(urls, dataset):
+    with open(dataset, "w") as output:
+        writer = csv.writer(output)
+        writer.writerow(attributes())
+        count_url = 0
+        for url in read_file(urls):
+            print(url)
+            count_url = count_url + 1
+            result = extract_url(url)           
+            writer.writerow(result)

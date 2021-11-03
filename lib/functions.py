@@ -4,7 +4,6 @@ from datetime import datetime
 from bs4 import BeautifulSoup
 from rblwatch import RBLSearch
 from .spf import get_spf_record, check_spf
-#from .blacklists import google_safebrowsing, phishtank, wot
 import re
 import pythonwhois
 import ipaddress
