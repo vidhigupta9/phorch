@@ -141,8 +141,7 @@ def main():
     
     #Sidebar
     st.sidebar.header("About App")
-    st.sidebar.info("A Twitter Sentiment analysis Project which will scrap twitter for the topic selected by the user. The extracted tweets will then be used to determine the Sentiments of those tweets. \
-                    The different Visualizations will help us get a feel of the overall mood of the people on Twitter regarding the topic we select.")
+    st.sidebar.info("URL classification process which recognizes whether the target website is a malicious(1) or benign(0). Enables individual URL checking and and checks random twitter posts to indentify any malicious redirections ")
     #st.sidebar.text("Built with Streamlit")
     
     st.sidebar.info("[Source Code](https://github.com/vidhigupta9/pytorch)")
