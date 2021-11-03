@@ -29,4 +29,5 @@ packaging==20.4
 pandas==1.2.4
 pathtools==0.1.2
 numpy==1.19.5
+--find-links https://download.pytorch.org/whl/torch_stable.html
 torch==1.4.0+cpu 
