@@ -119,7 +119,7 @@ def main():
                 if st.button("See the Extracted Data"):
                     #st.markdown(html_temp, unsafe_allow_html=True)
                     st.success("Below is the Extracted Data :")
-                    st.write(df[['tweet','url']])
+                    st.write(df[['Tweet','url']])
                 if st.button("Predict Results"):
                     st.write("Wait while process..........")
                     df['phishing'] = df['url'].apply(lambda x : prediction(x))
