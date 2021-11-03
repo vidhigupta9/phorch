@@ -10,9 +10,6 @@ import re
 import configparser
 import detector
 
-config = configparser.ConfigParser()
-config.read('config.ini')
-
 
 #To Hide Warnings
 st.set_option('deprecation.showfileUploaderEncoding', False)
@@ -74,7 +71,7 @@ def main():
                 i=0
                 df = pd.DataFrame(columns=["Date","User","IsVerified","Tweet","Likes","RT",'User_location'])
                 my_bar = st.progress(100) # To track progress of Extracted tweets
-                for tweet in tweepy.Cursor(api.search_tweets, q=Topic,count=10, lang="en",exclude='retweets').items():
+                for tweet in tweepy.Cursor(api.search_tweets, q=Topic,count=50, lang="en",exclude='retweets').items():
                     #time.sleep(0.1)
                     #my_bar.progress(i)
                     df.loc[i,"Date"] = tweet.created_at
@@ -121,7 +118,7 @@ def main():
                     st.success("Below is the Extracted Data :")
                     st.write(df[['Tweet','url']])
                 if st.button("Predict Results"):
-                    st.write("Wait while process..........")
+                    st.write("Wait while we process..........")
                     df['phishing'] = df['url'].apply(lambda x : prediction(x))
                     st.write(df[['url','phishing']])
                         

@@ -1,5 +1,4 @@
 *.pyc
 __pycache__/
-.env/
+.env
 database_phishtank.json
-config.ini
