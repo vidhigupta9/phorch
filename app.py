@@ -9,9 +9,8 @@ import json
 import re
 import configparser
 import detector
-
-config_object = configparser.ConfigParser()
-config_object.read('config.ini')
+from dotenv import load_dontenv
+import os
 
 
 #To Hide Warnings
@@ -44,11 +43,11 @@ def main():
     st.image(image,use_column_width=True)
 
     ################# Twitter API Connection #######################
-    twitter = config_object["TWITTER"]
-    consumer_key = twitter["consumer_key"]
-    consumer_secret = twitter["consumer_secret"]
-    access_token = twitter["access_token"]
-    access_token_secret = twitter["access_token_secret"]
+    load_dontenv()
+    consumer_key = os.getenv["consumer_key"]
+    consumer_secret = os.getenv["consumer_secret"]
+    access_token = os.getenv["access_token"]
+    access_token_secret = os.getenv["access_token_secret"]
 
     # Use the above credentials to authenticate the API.
 
