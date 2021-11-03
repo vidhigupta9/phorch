@@ -44,11 +44,11 @@ def main():
     st.image(image,use_column_width=True)
 
     ################# Twitter API Connection #######################
-    
-    consumer_key = "fktGsm2e6VfvCUZNflgwCnyOk"
-    consumer_secret = "vD2cBuXWN6fm4mdpDJepdDfoVGI0JEqmTlJT1tXAmISWJm8rrr"
-    access_token = "3104698248-t27PxxE2sAsV81NH45hiVhynNrB1rZaLau6eJdl"
-    access_token_secret = "8LdCL8LUbtCzszNmmzhndZpN7k1YkXbyupKLfvIy10YHy"
+    key = config["twitter api"]
+    consumer_key = key["consumer_key"]
+    consumer_secret = key["consumer_secret"]
+    access_token = key["access_token"]
+    access_token_secret = key["access_token_secret"]
 
     # Use the above credentials to authenticate the API.
 
@@ -74,7 +74,7 @@ def main():
                 i=0
                 df = pd.DataFrame(columns=["Date","User","IsVerified","Tweet","Likes","RT",'User_location'])
                 my_bar = st.progress(100) # To track progress of Extracted tweets
-                for tweet in tweepy.Cursor(api.search_tweets, q=Topic,count=10, lang="en",exclude='retweets').items():
+                for tweet in tweepy.Cursor(api.search_tweets, q=Topic,count=50, lang="en",exclude='retweets').items():
                     #time.sleep(0.1)
                     #my_bar.progress(i)
                     df.loc[i,"Date"] = tweet.created_at
@@ -110,7 +110,7 @@ def main():
             if len(Topic) > 0 :
                 # Call the function to extract the data. pass the topic and filename you want the data to be stored in.
                 with st.spinner("Please wait, Tweets are being extracted"):
-                    df = get_tweets(Topic , Count=10)
+                    df = get_tweets(Topic , Count=50)
                 st.success('Tweets have been Extracted !!!!')
                     # Call function to get Clean tweets
                 df['url'] = df['Tweet'].apply(lambda x : clean_tweet(x))
@@ -141,7 +141,8 @@ def main():
     
     #Sidebar
     st.sidebar.header("About App")
-    st.sidebar.info("URL classification process which recognizes whether the target website is a malicious(1) or benign(0). Enables individual URL checking and also checks random twitter posts to indentify any malicious redirections ")
+    st.sidebar.info("A Twitter Sentiment analysis Project which will scrap twitter for the topic selected by the user. The extracted tweets will then be used to determine the Sentiments of those tweets. \
+                    The different Visualizations will help us get a feel of the overall mood of the people on Twitter regarding the topic we select.")
     #st.sidebar.text("Built with Streamlit")
     
     st.sidebar.info("[Source Code](https://github.com/vidhigupta9/pytorch)")

@@ -3,3 +3,4 @@ __pycache__/
 .env/
 database_phishtank.json
 config.ini
+config.py
