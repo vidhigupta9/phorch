@@ -30,6 +30,6 @@ pandas==1.2.4
 pathtools==0.1.2
 numpy==1.19.5
 --find-links https://download.pytorch.org/whl/torch_stable.html
-torch==1.4.0+cpu 
+torch==1.9.0+cpu 
 tqdm==4.62.3
 regex==2021.9.30
