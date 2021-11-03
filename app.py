@@ -10,8 +10,8 @@ import re
 import configparser
 import detector
 
-config = configparser.ConfigParser()
-config.read('config.ini')
+config_object = configparser.ConfigParser()
+config_object.read('config.ini')
 
 
 #To Hide Warnings
@@ -44,11 +44,11 @@ def main():
     st.image(image,use_column_width=True)
 
     ################# Twitter API Connection #######################
-    key = config["twitter api"]
-    consumer_key = key["consumer_key"]
-    consumer_secret = key["consumer_secret"]
-    access_token = key["access_token"]
-    access_token_secret = key["access_token_secret"]
+    twitter = config_object["TWITTER"]
+    consumer_key = twitter["consumer_key"]
+    consumer_secret = twitter["consumer_secret"]
+    access_token = twitter["access_token"]
+    access_token_secret = twitter["access_token_secret"]
 
     # Use the above credentials to authenticate the API.
 
